@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1qjff4pyhgup"]
+
+[ext_resource type="PackedScene" uid="uid://dm4lnpp1l1eb3" path="res://chibis.glb" id="1_lx404"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999839, -0.0179236, 0, 0.0179236, 0.999839, 0.9646, 0.632748, -0.425018)
+use_collision = true
+size = Vector3(2.9292, 1.64502, 0.149963)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
+transform = Transform3D(1.6665, 0, 0, 0, 0.0107137, -1.64475, 0, 1.00462, 0.0175401, -0.0372467, -0.27257, -0.000263363)
+operation = 2
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99984, 0.0179236, 0, -0.0179236, 0.99984, -1.68004, -0.954753, -2.27888)
+size = Vector3(12.5986, 0.437988, 12.6134)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99984, 0.0179236, 0, -0.0179236, 0.99984, -5.98412, -0.712835, -4.46186)
+radius = 1.89708
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99984, 0.0179236, 0, -0.0179236, 0.99984, -5.73727, -1.06923, 1.4444)
+radius = 1.25289
+
+[node name="chibis" parent="CSGBox3D" instance=ExtResource("1_lx404")]
+transform = Transform3D(1.45056, 0, -3.43135, 0.0399742, 2.9869, 0.040001, 2.22989, -0.0535445, 2.23139, 2.13807, -0.199647, -3.46185)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99984, 0.0179236, 0, -0.0179236, 0.99984, 1.4326, -0.226905, -3.01224)
+light_energy = 0.815
+light_size = 0.069
+
+[node name="Camera3D" type="Camera3D" parent="CSGBox3D/OmniLight3D"]
+transform = Transform3D(-0.99685, -0.0766579, 0.0203588, -0.0653031, 0.938924, 0.337871, -0.0450159, 0.335477, -0.940972, -2.04739, 4.14957, -8.55962)
