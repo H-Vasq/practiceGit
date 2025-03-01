@@ -1,17 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1qjff4pyhgup"]
+[gd_scene load_steps=5 format=3 uid="uid://b1qjff4pyhgup"]
 
 [ext_resource type="PackedScene" uid="uid://dm4lnpp1l1eb3" path="res://chibis.glb" id="1_lx404"]
+[ext_resource type="Texture2D" uid="uid://ceji24viq8w5b" path="res://prototype-texture-with-size.png" id="2_y0o6d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l370r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3u20x"]
+albedo_texture = ExtResource("2_y0o6d")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [node name="Node3D" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.918835, -0.393578, 0.0289593, -0.109563, 0.324901, 0.93938, -0.379129, 0.859963, -0.341652, 0.194547, 0.352617, -0.405538)
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999839, -0.0179236, 0, 0.0179236, 0.999839, 0.9646, 0.632748, -0.425018)
 use_collision = true
 size = Vector3(2.9292, 1.64502, 0.149963)
+material = SubResource("StandardMaterial3D_l370r")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
 transform = Transform3D(1.6665, 0, 0, 0, 0.0107137, -1.64475, 0, 1.00462, 0.0175401, -0.0372467, -0.27257, -0.000263363)
@@ -39,3 +48,8 @@ light_size = 0.069
 
 [node name="Camera3D" type="Camera3D" parent="CSGBox3D/OmniLight3D"]
 transform = Transform3D(-0.399034, 0.171591, -0.900737, -0.101691, 0.967993, 0.229454, 0.91128, 0.183157, -0.368813, -3.65409, 1.12011, 0.373745)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(7.5163, 0, 0, 0, 2.45068, 0, 0, 0, 6.42705, 3, 1.37257, 7)
+material_override = SubResource("StandardMaterial3D_3u20x")
+flip_faces = true
